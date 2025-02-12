@@ -1,0 +1,94 @@
+<div class="container mt-4">
+  <h2>Edit User <a class="btn btn-primary" href="/employer-list">User List</a></h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <form #EmployerForm="ngForm" (ngSubmit)="updateEmployer(EmployerForm)">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" class="form-control" name="firstName" [(ngModel)]="employer.firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" class="form-control" name="lastName" [(ngModel)]="employer.lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="employer.email" required>
+    </div>
+    <div class="form-group">
+      <label for="mobile">Mobile</label>
+      <input type="text" id="mobile" class="form-control" name="mobile" [(ngModel)]="employer.mobile" required>
+    </div>
+    <div class="form-group">
+      <label for="mobile2">Mobile 2</label>
+      <input type="text" id="mobile2" class="form-control" name="mobile2" [(ngModel)]="employer.mobile2">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea id="address" class="form-control" name="address" [(ngModel)]="employer.address" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="photo">Photo</label>
+      <input type="file" id="photo" class="form-control" (change)="onFileChange($event)">
+      <div *ngIf="employer.photo">
+        <img [src]="employer.photo" alt="Photo" width="100" height="100" class="mt-2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="visaType">Visa Type</label>
+      <input type="text" id="visaType" class="form-control" name="visaType" [(ngModel)]="employer.visaType" required>
+    </div>
+    <div class="form-group">
+      <label for="visaDates">Visa Start and End Date</label>
+      <div class="row">
+        <div class="col">
+          <input type="date" id="visaStartDate" class="form-control" name="visaStartDate" [(ngModel)]="employer.visaStartDate" required>
+        </div>
+        <div class="col">
+          <input type="date" id="visaEndDate" class="form-control" name="visaEndDate" [(ngModel)]="employer.visaEndDate" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="passport">Passport</label>
+      <div class="row">
+        <div class="col">
+          <input type="text" id="passportNo" class="form-control" name="passportNo" [(ngModel)]="employer.passportNo" required>
+        </div>
+        <div class="col">
+          <input type="date" id="passportIssue" class="form-control" name="passportIssue" [(ngModel)]="employer.passportIssue" required>
+        </div>
+        <div class="col">
+          <input type="date" id="passportExpire" class="form-control" name="passportExpire" [(ngModel)]="employer.passportExpire" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <div class="row">
+        <div class="col">
+          <input type="text" id="country" class="form-control" name="country" [(ngModel)]="employer.country" required>
+        </div>
+        <div class="col">
+          <input type="text" id="state" class="form-control" name="state" [(ngModel)]="employer.state" required>
+        </div>
+        <div class="col">
+          <input type="text" id="city" class="form-control" name="city" [(ngModel)]="employer.city" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Gender</label>
+      <div>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="male" class="form-check-input" name="gender" [(ngModel)]="employer.gender" value="Male" required>
+          <label for="male" class="form-check-label">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="female" class="form-check-input" name="gender" [(ngModel)]="employer.gender" value="Female" required>
+          <label for="female" class="form-check-label">Female</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="EmployerForm.invalid">Update</button>
+  </form>
+</div>

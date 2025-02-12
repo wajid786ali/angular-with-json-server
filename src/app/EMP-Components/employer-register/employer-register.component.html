@@ -1,0 +1,98 @@
+<div class="container mt-4">
+  <h2>User Registration</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <form #userForm="ngForm" (ngSubmit)="registerEmployer(userForm)">
+    <div class="row">
+      <div class="form-group col-6">
+        <label for="firstName">Full Name</label>
+        <div class="row">
+          <div class="col">
+            <input type="text" id="firstName" class="form-control" placeholder="First Name" name="firstName" ngModel
+              required>
+          </div>
+          <div class="col">
+            <input type="text" id="lastName" class="form-control" placeholder="Last Name" name="lastName" ngModel
+              required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-6">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" ngModel required>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile">Mobile</label>
+        <input type="text" id="mobile" class="form-control" name="mobile" ngModel required>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile2">Mobile 2</label>
+        <input type="text" id="mobile2" class="form-control" name="mobile2" ngModel>
+      </div>
+      <div class="form-group col-12">
+        <label for="address">Address</label>
+        <textarea id="address" class="form-control" name="address" ngModel required></textarea>
+      </div>
+      <div class="form-group col-6">
+        <label for="photo">Photo</label>
+        <input type="file" id="photo" class="form-control" (change)="onFileChange($event)">
+      </div>
+      <div class="form-group col-6">
+        <label for="visaType">Visa Type</label>
+        <input type="text" id="visaType" class="form-control" name="visaType" ngModel required>
+      </div>
+      <div class="form-group col-6">
+        <label for="visaDates">Visa Start and End Date</label>
+        <div class="row">
+          <div class="col">
+            <input type="date" id="visaStartDate" class="form-control" name="visaStartDate" ngModel required>
+          </div>
+          <div class="col">
+            <input type="date" id="visaEndDate" class="form-control" name="visaEndDate" ngModel required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-6">
+        <label for="passport">Passport Details</label>
+        <div class="row">
+          <div class="col">
+            <input type="text" id="passportNo" class="form-control" name="passportNo" ngModel required>
+          </div>
+          <div class="col">
+            <input type="date" id="passportIssue" class="form-control" name="passportIssue" ngModel required>
+          </div>
+          <div class="col">
+            <input type="date" id="passportExpire" class="form-control" name="passportExpire" ngModel required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-6">
+        <label for="location">Location</label>
+        <div class="row">
+          <div class="col">
+            <input type="text" id="country" class="form-control" name="country" ngModel required>
+          </div>
+          <div class="col">
+            <input type="text" id="state" class="form-control" name="state" ngModel required>
+          </div>
+          <div class="col">
+            <input type="text" id="city" class="form-control" name="city" ngModel required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-6">
+        <label>Gender</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="male" class="form-check-input" name="gender" value="Male" ngModel required>
+            <label for="male" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="female" class="form-check-input" name="gender" value="Female" ngModel required>
+            <label for="female" class="form-check-label">Female</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Register</button>
+  </form>
+</div>

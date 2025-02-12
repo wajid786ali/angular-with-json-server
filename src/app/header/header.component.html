@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/home">WA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" routerLink="/home" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/employer-list" [routerLinkActive]="['active']">EMP List</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/employer-register" [routerLinkActive]="['active']">EMP Register</a></li> 
+            <li class="nav-item"><a class="nav-link" routerLink="/company-list" [routerLinkActive]="['active']">COM List</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/company-register" [routerLinkActive]="['active']">COM Register</a></li> 
+        </ul>
+    </div>
+</nav>
+ 
